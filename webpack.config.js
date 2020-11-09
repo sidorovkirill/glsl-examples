@@ -6,7 +6,7 @@ const root = path.join(__dirname, '.');
 module.exports = (env) => {
     const config = {
         entry: {
-            main: './src/main'
+            main: './src/index'
         },
 
         output: {
