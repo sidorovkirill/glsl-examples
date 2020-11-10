@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import {move, onWindowResize, animate, setUp} from './utils';
 import {scene, camera, renderer} from "./scene";
-import vshader from '../shaders/first/vertex.glsl';
-import fshader from '../shaders/first/fragment.glsl';
+import vshader from './shaders/vertex.glsl';
+import fshader from './shaders/fragment.glsl';
 
 // Data
 
