@@ -3,9 +3,9 @@ import {scene, camera, renderer} from "./scene";
 
 const clock = new THREE.Clock();
 
-export const move = (evt) => {
-    uniforms.u_mouse.value.x = (evt.touches) ? evt.touches[0].clientX : evt.clientX;
-    uniforms.u_mouse.value.y = (evt.touches) ? evt.touches[0].clientY : evt.clientY;
+export const move = (event, uniforms) => {
+    uniforms.u_mouse.value.x = (event.touches) ? event.touches[0].clientX : event.clientX;
+    uniforms.u_mouse.value.y = (event.touches) ? event.touches[0].clientY : event.clientY;
 };
 
 export const onWindowResize = ( uniforms ) => {
@@ -46,9 +46,9 @@ export const setUp = (uniforms) => {
 
     onWindowResize(uniforms);
     if ('ontouchstart' in window){
-        document.addEventListener('touchmove', move);
+        document.addEventListener('touchmove', (e) => move(e, uniforms));
     }else{
         window.addEventListener( 'resize', () => onWindowResize(uniforms), false );
-        document.addEventListener('mousemove', move);
+        document.addEventListener('mousemove', (e) => move(e, uniforms));
     }
 };
